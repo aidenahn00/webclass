@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>삼항연산자</title>
+</head>
+<body>
+    <script>
+       5>3?"가":"나" // '가'
+       !(5<3)?'가':'나' // '가'
+       10!==10?'다':'라' // '라'
+    
+       let a;
+       !a?'b':'c'; // 'b'
+       10-2?1:2 // 1
+       10-2?1:2?2:0 // 2 - 8이 true여서 1이 되고, 1이 true라서 2가 된다
+       console.log(10-2?1:2?2:0); // 1이 나옴, 붙여 쓰면 헷갈림 - 삼항이 중간의 ?와 :로 계산이 된 것임 (10-2?1):(2?2:0) true로 간주된 것 앞 하나만 나온 것임, 만약 10-10 ? 1 : 2 ? 2 : 0이었다면 false가 되어서 다음 삼항으로 넘어가서 2가 됨, 즉 첫 삼항연산자 조건에서 true가 나오면 바로 삼항조건연산자는 종료되고 값이 리턴된다
+       console.log((10-2?1:2)?2:0); // 2가 나옴
+       console.log(30<20?'A':5===5?'C':'D'); // 'C'
+       
+       let name = prompt('이름을 입력하시오');
+       name = name?name:'아무개';
+       console.log(name);
+       document.write(`${name}님 환영합니다.`);
+    </script>
+</body>
+</html>

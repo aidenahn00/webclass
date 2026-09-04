@@ -1,0 +1,18 @@
+*{margin:0;padding:0;}
+.box {
+    background-color: pink;
+    height: 800px;
+
+    position: relative;
+}
+.a {
+    width: 300px;
+    height: 200px;
+    background-color: red;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translateX(-50%) translateY(-50%);
+}

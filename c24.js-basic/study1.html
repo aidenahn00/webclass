@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 기초</title>
+</head>
+<body>
+    <script>
+    // 자바스크립트 언어만 사용 가능한 영역
+    console.log("Hello World");
+    "ㅇ"
+    'ㅇ'
+    // `안정현`
+    console.log("반갑습니다. 안정현 님.".length);
+    console.log("안"+"정"+`현`);
+    console.log("안정현"[0]+"안정현"[1]); // "안정"
+    console.log("It's me");
+    console.log('It\'s me');
+    console.log(100+10-10*10/10%10**2);
+    console.log(10+"100"+10); // 10010 문자가 섞이면 계산이 안되고 무조건 문자로 처리된다
+    console.log("웹디정선생"[2]+"민"+100);
+    console.log((100+"웹디정선생".length)*3); // 괄호가 우선 처리된다
+    console.log(("정현진"[0]+"웹디정선생"[1]).length+10); // 괄호가 우선 처리된다
+
+    console.log(typeof("정현진"));
+    console.log(typeof(100));
+    console.log(Number("100"));
+    console.log(String(100));
+
+    // document.write(prompt("이름이 무엇인가요?"));
+    // confirm("진행하시겠습니까?");
+
+    // document.write("<h1>"+prompt("이름을 알려주세요")+"님 반갑습니다</h1>");
+    document.write(`<h1>${100}님 반갑습니다</h1>`);
+    </script>
+    그래요 반갑습니다.
+</body>
+</html>

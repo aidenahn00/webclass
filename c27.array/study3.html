@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 함수</title>
+</head>
+<body>
+    <script>
+        let fruits = ['사과', '수박', '복숭아'];
+        let newFruits = fruits.map(function(el, index, array){
+            return el+'당';
+        });
+        console.log(fruits, newFruits);
+
+        // fruits.forEach(function(el, index, array) {
+        //     console.log(el, index, array);
+        // });
+        // fruits.forEach(el => console.log(el+'사주세요'));
+        
+        let a = [1,2,3,4,5,6,7,8,9,10];
+        let b = a.filter(el=>el>=5);
+        console.log(b);
+    </script>
+</body>
+</html>

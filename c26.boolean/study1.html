@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boolean</title>
+</head>
+<body>
+    <script>
+        // 명제 - 계산됨
+        10>9 // true
+        10<9 // false
+        10===10 // true
+        10>=9 // true
+        10<=10 // true
+        10!==10 // false
+        !(10>9) // false - JS에서 !은 부정의 의미가 됨
+        !!(20>3) // true - 이중 부정으로 true가 됨 !!true
+
+        console.log(!!(20>3));
+    </script>
+    
+    <h1>있으면 true / 없으면 false</h1>
+    <p>false로 간주되는 경우 (암기)</p>
+    <ul>
+        <li>숫자데이터인데 값이 0 - 수가 없다는 맥락으로 이중적으로 해석함 false로 간주함</li>
+        <li>문자데이터 내용이 없는 경우 - ''</li>
+        <li>변수를 선언했는데 초기화하지 않은 경우 - 정확히는 undefined라는 값이 들어가 있음</li>
+        <li>undefined</li>
+        <li>null</li>
+    </ul>
+    <script>
+        // 간주 - 계산이 아니라 간주됨
+        console.log(0); // 0은 fasle 간주, 나머지는 true로 간주됨 - 마이너스 음수도 포함
+        console.log('');
+        // undefined는 값을 지정하지 않은 것이고, null은 데이터를 깔끔하게 지워서 청소를 해둔 상태를 의미함
+        let a; console.log(a); // undefined
+        let b = null; // 깨끗한 상태로 저장을 하겠다
+
+        !-30 // false + true여서 false로 간주됨
+        !0 // false + false여서 true로 간주됨
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 체질량 지수</title>
+    <link rel="stylesheet" href="./css/ex2.css">
+    <style>
+        #marker {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function numberCheckPrompt(promptText) {
+            let num = prompt(promptText);
+            while (isNaN(num) || num === null || num.trim() === "") {
+                num = prompt("숫자를 입력하세요:"); 
+            }
+            return Number(num);
+        }        
+
+        let userName = prompt('당신의 이름을 입력해주세요.');
+        let weight = numberCheckPrompt('몸무게를 입력해주세요.');
+        let height = numberCheckPrompt('키를 입력해주세요.');
+        let bmi = Number((weight / ((height*0.01)**2)).toFixed(2));
+        let grade = bmi >= 25 ? '비만' : bmi >= 23 ? '과체중' : bmi >= 18.5 ? '정상' : '저체중';
+
+        document.write(`
+    <main class="bmi-card">
+        <h1>나의 체질량 지수</h1>
+        <p class="description">
+            체질량지수(BMI)는 키와 체중을 이용해 체중 상태를 확인하는 간단한 지표입니다.<br>
+            BMI = 체중(kg) ÷ 키(m)²
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>체중</th>
+                    <th>키</th>
+                    <th>BMI 지수</th>
+                    <th>당신은?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="userName">${userName}</td>
+                    <td id="weight">${weight}kg</td>
+                    <td id="height">${height}cm</td>
+                    <td id="bmi">${bmi}</td>
+                    <td id="bmi">${grade}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <section class="result">
+            <div class="result-heading">
+                <span id="bmiStatus"></span>
+            </div>
+            <div class="chart-wrap">
+                <div class="chart" aria-label="BMI 체중 상태 기준 그래프">
+                    <div class="range underweight"></div>
+                    <div class="range normal"></div>
+                    <div class="range overweight"></div>
+                    <div class="range obesity"></div>
+                    <span class="marker" id="marker"></span>
+                </div>
+                <div class="labels">
+                    <span>저체중<small>18.5 미만</small></span>
+                    <span>정상<small>18.5 ~ 22.9</small></span>
+                    <span>과체중<small>23 ~ 24.9</small></span>
+                    <span>비만<small>25 이상</small></span>
+                </div>
+            </div>
+        </section>
+    </main>        
+        `);
+    </script>
+</body>
+</html>

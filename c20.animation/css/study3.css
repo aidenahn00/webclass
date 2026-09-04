@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: #f8fafc;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+}
+
+.marquee-page {
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    align-content: center;
+    gap: 2rem;
+}
+
+.marquee-page h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    padding: 1.2rem 0;
+    white-space: nowrap;
+    background: #2563eb;
+    border-block: 1px solid #93c5fd;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-move 16s linear infinite;
+    will-change: transform;
+}
+
+/* Padding belongs to each group, so the two groups meet seamlessly. */
+.marquee-content {
+    display: flex;
+    flex: none;
+    gap: 3rem;
+    padding-right: 3rem;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-weight: 700;
+    letter-spacing: .06em;
+}
+
+@keyframes marquee-move {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+        animation: none;
+    }
+}

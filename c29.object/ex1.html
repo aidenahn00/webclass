@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리반 명단</title>
+    <link rel="stylesheet" href="./css/ex1.css">
+    <script src="./js/classroom.js"></script>
+    <style>
+        img {
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+        dd span {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 100px;
+            background: gold;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>우리반 명단</h1>
+    <ul class="classmate">
+        <script>        
+            for (let i = 0; i < classRoom.length; i++) {
+                let hobby = '';
+                for (let j = 0; j < classRoom[i].hobbies.length; j++) {
+                    hobby += `<span>#${classRoom[i].hobbies[j]}</span>`;
+                }
+                document.write(`<li>
+                    <figure><img src="./img/${classRoom[i].thumbnailFileName}" alt="${classRoom[i].name} 프로필 사진"></figure>
+                <dl>
+                    <dt>이름</dt>
+                    <dd>${classRoom[i].name}</dd>
+                    <dt>성별</dt>
+                    <dd>${classRoom[i].gender}</dd>
+                    <dt>나이</dt>
+                    <dd>${classRoom[i].age}</dd>
+                    <dt>결혼</dt>
+                    <dd>${classRoom[i].married ? '기혼' : '미혼'}</dd>
+                    <dt>취미</dt>
+                    <dd>
+                        ${hobby}
+                    </dd>
+                </dl>
+                </li>`);
+            }
+        </script>
+    </ul>
+</body>
+</html>

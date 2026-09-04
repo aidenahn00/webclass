@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태그의 속성 편집하기</title>
+</head>
+<body>
+    <figure>
+        <img src="./img/최윤성.png" alt="최윤성 프로필 이미지">
+        <figcaption class="b">최윤성</figcaption>
+    </figure>
+    <style>
+        figure {
+            display: flex;
+        }
+        .b.on {
+            background-color: red;
+            color: #fff;
+        }
+    </style>
+    <script>
+        const imgTag = document.querySelector('img');
+        // alert(imgTag.getAttribute('src'));
+        imgTag.setAttribute('src', './img/정선민.png');
+        // alert(imgTag.getAttribute('src'));
+
+
+        const figCaption = document.querySelector('figcaption');
+        // alert(figCaption.textContent); // 내용 가져오기
+        figCaption.innerText = '정선민';
+        figCaption.innerHTML = '<i>정선민</i>'; // 더 많이 사용한다
+        figCaption.style.fontSize = '60px';
+        figCaption.classList.add('on');
+        figCaption.classList.remove('on');
+    </script>
+
+    <ul class="list">
+        <li>1</li>
+        <li class="me">2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+    <script>
+        let me = document.querySelector('.me');
+        me.parentElement.style.border = '2px solid green';
+        me.nextElementSibling.nextElementSibling.style.color = 'blue';
+        me.previousElementSibling.style.color = 'blue';
+        me.previousElementSibling.style.color = 'pink';
+        console.log(me.parentElement.previousElementSibling);
+        let list = document.querySelector('.list');
+        let listTags = list.children; // [{}, {}, {}, {},...] 배열 return
+        //listTags[0].style.color = 'red';
+
+
+        listTags.forEach(element => {
+            element.style.color = 'red'
+        });
+    </script>
+</body>
+</html>

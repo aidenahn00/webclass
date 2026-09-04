@@ -1,0 +1,12 @@
+h2 {
+    color: green;
+}
+li.a.b {
+    color: red;
+}
+h3#b {
+    color: blue;
+}
+li#b.active {
+    color:aquamarine
+}

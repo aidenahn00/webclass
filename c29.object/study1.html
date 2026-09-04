@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object - 객체 사물</title>
+    <script src="./js/classroom.js"></script>
+</head>
+<body>
+    <script>
+        let person = {   
+            key : 'value', // 이 한 쌍을 프로퍼티라고 부른다
+            name : '정현진', 
+            gender : '남자', 
+            married : false,
+        }
+        // 객체 표기법과 일반 표기법
+        console.log(person['name']); // 정현진
+        console.log(person.gender); // 남자
+        console.log(person['name'][1]); // 현
+        console.log(person.gender.length); // 2
+        let person2 = { name : '박민주', gender : '여자', married : true }
+        person2.name = '안정현'; // 외부에서 대입 가능
+        console.log(person2.name);
+
+        let newPerson = {...person, age : 49, name : '김가온'} // 새로운 객체에 복사 및 객체 추가 가능 - ... 세 개 찍는 것을 전개연산자라고 한다 - 새로운 key를 추가해줄 수 있고, 기존의 key를 바꾸면 데이터를 바꿀 수 있다
+        console.log(newPerson);
+    </script>
+</body>
+</html>

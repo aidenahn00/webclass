@@ -1,0 +1,71 @@
+.box1 {
+    border: 1px solid #000;
+    width: 200px;
+    height: 200px;
+    /* x y spread color */
+    box-shadow: 10px 30px 10px blue;
+}
+.box2 {
+    border: 1px solid #000;
+    width: 200px;
+    height: 200px;
+    
+    margin-top: 100px;
+    
+    box-shadow: 
+    20px 20px 0 red,
+    -20px -20px 0 blue,
+    40px 40px 0 green;
+    transition: all 2s ease 0s;
+}
+.box2:hover {
+    box-shadow: 
+    0 0 0 red,
+    0 0 0 blue,
+    0 0 0 green;
+}
+.filter {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+.filter img {
+    transition: all 1s ease 0s;
+}
+.filter:hover img {
+    filter: grayscale(1);
+    filter: brightness(.6);
+    filter: blur(20px);
+}
+.filter:hover figcaption {
+    opacity: 1;
+    top: 0;
+}
+figcaption {
+    position: absolute;
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+
+    top: 0%;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    opacity: 0;
+
+    transition: all 1s ease 0s;
+
+    background-color: gold;
+    mix-blend-mode: overlay;
+}

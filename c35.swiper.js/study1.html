@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <style>
+        .swiper {}
+
+        .station1 {
+            width: 700px;
+            height: 350px;
+            border: 1px solid red;
+        }
+
+        .station2 {
+            width: 800px;
+            height: 800px;
+            border: 1px solid blue;
+        }
+
+        .swiper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper station1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="./img/김가온.png" alt="김가온">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/김예림.png" alt="김예림">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/김하경.png" alt="김하경">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/김현아.png" alt="김현아">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/박민주.png" alt="박민주">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/배수정.png" alt="배수정">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/백민선.png" alt="백민선">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/성대한.png" alt="성대한">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/안정현.png" alt="안정현">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/유채린.png" alt="유채린">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/윤희정.png" alt="윤희정">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/이선영.png" alt="이선영">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/이효은.png" alt="이효은">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/장예원.png" alt="장예원">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/정선민.png" alt="정선민">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/정현진.png" alt="정현진">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/최선미.png" alt="최선미">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/최윤성.png" alt="최윤성">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/함국주.png" alt="함국주">
+            </div>
+        </div>
+    </div>
+    <div class="swiper station2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="./img/김가온.png" alt="김가온">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/김예림.png" alt="김예림">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/김하경.png" alt="김하경">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/김현아.png" alt="김현아">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/박민주.png" alt="박민주">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/배수정.png" alt="배수정">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/백민선.png" alt="백민선">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/성대한.png" alt="성대한">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/안정현.png" alt="안정현">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/유채린.png" alt="유채린">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/윤희정.png" alt="윤희정">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/이선영.png" alt="이선영">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/이효은.png" alt="이효은">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/장예원.png" alt="장예원">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/정선민.png" alt="정선민">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/정현진.png" alt="정현진">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/최선미.png" alt="최선미">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/최윤성.png" alt="최윤성">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/함국주.png" alt="함국주">
+            </div>
+        </div>
+    </div>
+    <script>
+        const swiper1 = new Swiper('.station1', {
+            direction: 'vertical',
+            loop: true,
+            slidesPerView: 5,
+            autoplay: {
+                delay: 1000, // Time between transitions in ms (3 seconds)
+                disableOnInteraction: false, // Keeps autoplay running after user swipes
+                pauseOnMouseEnter: true, // Pauses autoplay when mouse hovers over slider
+            },
+        });
+        const swiper2 = new Swiper('.station2', {
+            loop: true,
+            slidesPerView: 5,
+            slidesPerView: 'auto',
+            autoplay: {
+                delay: 1000, // Time between transitions in ms (3 seconds)
+                disableOnInteraction: false, // Keeps autoplay running after user swipes
+                pauseOnMouseEnter: true, // Pauses autoplay when mouse hovers over slider
+            },
+        });
+    </script>
+</body>
+
+</html>

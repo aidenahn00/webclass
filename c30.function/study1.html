@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function - 함수</title>
+</head>
+<body>
+    <script>
+        function a() {
+            alert('안녕하세요');
+        }
+
+        function b(name, age) {
+            document.write(`<p>${name}님 안녕하세요</p>`);
+            document.write(`<p>${name}님은 ${age}살이시군요</p>`);
+        }
+
+        // a();
+        b('정현진', 45);
+        b('정선민', 20);
+
+        function c(person) {
+            document.write(`<p>${person[0]} 님 반갑습니다.</p>`);
+            document.write(`<p>${person[0]} 님은 ${person[1]}세이시군요.</p>`);
+        }
+        c(['정현진', 45]);
+
+        
+
+        function d(person) {
+            document.write(`<p>${person.name} 님 반갑습니다.</p>`);
+            document.write(`<p>${person.name} 님은 ${person.age}세이시군요.</p>`);
+        }
+
+        d({ name : '정현진', age : 45 });
+
+
+        function e() {
+            alert('히히');
+            return
+            alert('헤헤');
+        }
+        // let result1 = e(); // 3
+        // console.log(result1);
+
+        function g(name) {
+            document.write(`<p>${name} 님 좋은 아침입니다.</p>`);
+            return {na : name}
+        }
+        // let user = g('성대한');
+        // alert(user.na);
+
+        function getAver(score) {
+            return (score[0]+score[1]+score[2])/3
+        }
+        alert(`평균 점수는 ${getAver([80, 100, 9])}점입니다.`);
+    </script>
+</body>
+</html>

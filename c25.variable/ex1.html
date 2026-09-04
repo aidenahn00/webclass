@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성적표</title>
+    <style>
+        :root {
+            --navy: #173b68;
+            --blue: #315d8f;
+            --line: #aab6c2;
+            --header: #eaf1f8;
+            --paper: #fffefa;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            display: grid;
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px;
+            place-items: center;
+            background: #e8edf2;
+            color: #202a34;
+            font-family: "Malgun Gothic", "맑은 고딕", sans-serif;
+        }
+
+        .report {
+            width: min(100%, 560px);
+            padding: 42px 45px 36px;
+            background: var(--paper);
+            border: 1px solid #b6c0c9;
+            box-shadow: 0 8px 22px rgba(25, 45, 67, .16);
+        }
+
+        .school-name {
+            margin: 0 0 7px;
+            color: var(--blue);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 30px;
+            color: #172f50;
+            font-family: "Batang", "바탕", serif;
+            font-size: 30px;
+            letter-spacing: .3em;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-top: 3px solid var(--navy);
+            font-size: 15px;
+        }
+
+        caption {
+            margin-bottom: 11px;
+            color: var(--navy);
+            font-size: 16px;
+            font-weight: 800;
+            text-align: left;
+        }
+
+        th, td { border: 1px solid var(--line); }
+
+        th {
+            width: 42%;
+            padding: 13px 16px;
+            background: var(--header);
+            color: #294362;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        td { padding: 13px 16px; text-align: right; }
+        tbody tr:nth-child(5) td { color: #a12e2e; font-weight: 800; }
+
+        .total th, .total td { background: #f3f6f9; font-weight: 800; }
+        .average th, .average td { background: var(--navy); border-color: var(--navy); color: #fff; font-weight: 800; }
+
+        .footer {
+            margin: 19px 0 0;
+            color: #667583;
+            font-size: 12px;
+            text-align: right;
+        }
+
+        @media (max-width: 460px) {
+            body { padding: 12px; }
+            .report { padding: 32px 23px 28px; }
+            h1 { font-size: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function numberCheckPrompt(promptText) {
+            let num = prompt(promptText);
+            while (isNaN(num) || num === null || num.trim() === "") {
+                num = prompt("숫자를 입력하세요:");
+            }
+            return Number(num);
+        }        
+
+        let userName = prompt('당신의 이름을 입력해주세요.');
+        let scoreKo = numberCheckPrompt('당신의 국어 점수를 입력해주세요.');
+        let scroeEnglish = numberCheckPrompt('당신의 영어 점수를 입력해주세요.');
+        let scoreMath = numberCheckPrompt('당신의 수학 점수를 입력해주세요.');
+        let scroeSocial = numberCheckPrompt('당신의 사회 점수를 입력해주세요.');
+        let scroeTotal = scoreKo + scroeEnglish + scoreMath + scroeSocial;
+        let scroeAverage = Number(scroeTotal / 4).toFixed(2);
+        let grade = scroeAverage >= 90 ? 1 : scroeAverage >= 80 ? 2 : scroeAverage >= 70 ? 3 : scroeAverage >= 70 ? 4 : 5;
+
+        document.write(`
+    <main class="report">
+        <p class="school-name">그린컴퓨터아카데미</p>
+        <h1>성 적 표</h1>
+        <table>
+            <caption>${userName} 학생 성적 현황</caption>
+            <tbody>
+                <tr><th scope="row">이름</th><td>${userName}</td></tr>
+                <tr><th scope="row">국어</th><td>${scoreKo}점</td></tr>
+                <tr><th scope="row">영어</th><td>${scroeEnglish}점</td></tr>
+                <tr><th scope="row">수학</th><td>${scoreMath}점</td></tr>
+                <tr><th scope="row">사회</th><td>${scroeSocial}점</td></tr>
+                <tr class="total"><th scope="row">합계</th><td>${scroeTotal}점</td></tr>
+                <tr class="average"><th scope="row">평균</th><td>${scroeAverage}점</td></tr>
+                <tr class="average"><th scope="row">등급</th><td>${grade}등급</td></tr>
+            </tbody>
+        </table>
+        <p class="footer">2026학년도 제1학기 성적 통지</p>
+    </main>        
+        `);
+    </script>
+
+    <!-- <main class="report">
+        <p class="school-name">대한민국 미래고등학교</p>
+        <h1>성 적 표</h1>
+        <table>
+            <caption>정현진 학생 성적 현황</caption>
+            <tbody>
+                <tr><th scope="row">이름</th><td>정현진</td></tr>
+                <tr><th scope="row">국어</th><td>90점</td></tr>
+                <tr><th scope="row">영어</th><td>80점</td></tr>
+                <tr><th scope="row">수학</th><td>80점</td></tr>
+                <tr><th scope="row">사회</th><td>70점</td></tr>
+                <tr class="total"><th scope="row">합계</th><td>330점</td></tr>
+                <tr class="average"><th scope="row">평균</th><td>82.5점</td></tr>
+            </tbody>
+        </table>
+        <p class="footer">2026학년도 제1학기 성적 통지</p>
+    </main> -->
+</body>
+</html>

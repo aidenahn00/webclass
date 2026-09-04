@@ -1,0 +1,44 @@
+.wrap {
+    background-color: beige;
+    transition: all 1s ease 0s;
+
+    animation: myanimation .05s linear 0s infinite; 
+}
+
+@media (min-width: 800px) and (max-width: 1500px) {
+    /* 화면너비가 최대 768픽셀인 경우 적용되는 스타일 */
+    .wrap {
+        background-color: gray;
+    }
+}
+@media (max-width: 1024px) {
+    /* 화면너비가 최대 1024픽셀인 경우 적용되는 스타일 */
+    .wrap {
+        background-color: red;
+    }
+}
+@media (max-width: 768px) {
+    /* 화면너비가 최대 768픽셀인 경우 적용되는 스타일 */
+    .wrap {
+        background-color: blue;
+    }
+}
+@media (max-width: 480px) {
+    /* 화면너비가 최대 768픽셀인 경우 적용되는 스타일 */
+    .wrap {
+        background-color: green;
+    }
+}
+
+@keyframes myanimation {
+    0% {
+        transform: translateX(0px);
+        transform: translateY(0px);
+        /* //rotate(0deg); */
+    }
+    100% {
+        transform: translateX(8px);
+        transform: translateY(8px);
+        /* //rotate(360deg);         */
+    }
+}

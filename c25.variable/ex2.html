@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 체질량 지수</title>
+    <link rel="stylesheet" href="./css/ex2.css">
+</head>
+<body>
+    <script>
+        /*function numberCheckPrompt(promptText) {
+            let num = prompt(promptText);
+            while (isNaN(num) || num === null || num.trim() === "") {
+                num = prompt("숫자를 입력하세요:");
+            }
+            return Number(num);
+        }        
+
+        let userName = prompt('당신의 이름을 입력해주세요.');
+        let weight = Number(numberCheckPrompt('몸무게를 입력해주세요.'));
+        let height = Number(numberCheckPrompt('키를 입력해주세요.'));*/
+    </script>
+    <main class="bmi-card">
+        <h1>나의 체질량 지수</h1>
+        <p class="description">
+            체질량지수(BMI)는 키와 체중을 이용해 체중 상태를 확인하는 간단한 지표입니다.<br>
+            BMI = 체중(kg) ÷ 키(m)²
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>체중</th>
+                    <th>키</th>
+                    <th>BMI 지수</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="userName"></td>
+                    <td id="weight"></td>
+                    <td id="height"></td>
+                    <td id="bmi"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <section class="result">
+            <div class="result-heading">
+                <h2>나의 BMI 위치</h2>
+                <span id="bmiStatus"></span>
+            </div>
+            <div class="chart-wrap">
+                <div class="chart" aria-label="BMI 체중 상태 기준 그래프">
+                    <div class="range underweight"></div>
+                    <div class="range normal"></div>
+                    <div class="range overweight"></div>
+                    <div class="range obesity"></div>
+                    <span class="marker" id="marker"></span>
+                </div>
+                <div class="labels">
+                    <span>저체중<small>18.5 미만</small></span>
+                    <span>정상<small>18.5 ~ 22.9</small></span>
+                    <span>과체중<small>23 ~ 24.9</small></span>
+                    <span>비만<small>25 이상</small></span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        function getNumber(message) {
+            let value;
+
+            do {
+                value = prompt(message);
+            } while (value === null || value.trim() === "" || Number(value) <= 0 || Number.isNaN(Number(value)));
+
+            return Number(value);
+        }
+
+        function getStatus(bmi) {
+            if (bmi < 18.5) return ["저체중", "#dbeafe", "#1d4ed8"];
+            if (bmi < 23) return ["정상", "#d1fae5", "#047857"];
+            if (bmi < 25) return ["과체중", "#fef3c7", "#b45309"];
+            return ["비만", "#fee2e2", "#b91c1c"];
+        }
+
+        const name = prompt("이름을 입력해주세요.") || "이름 없음";
+        const weight = getNumber("체중(kg)을 입력해주세요.");
+        const height = getNumber("키(cm)를 입력해주세요.");
+        const bmi = weight / ((height / 100) ** 2);
+        const [status, backgroundColor, textColor] = getStatus(bmi);
+
+        document.querySelector("#userName").textContent = name;
+        document.querySelector("#weight").textContent = `${weight} kg`;
+        document.querySelector("#height").textContent = `${height} cm`;
+        document.querySelector("#bmi").textContent = bmi.toFixed(1);
+
+        const bmiStatus = document.querySelector("#bmiStatus");
+        bmiStatus.textContent = status;
+        bmiStatus.style.backgroundColor = backgroundColor;
+        bmiStatus.style.color = textColor;
+
+        // 그래프는 BMI 10~40을 기준으로 표시하며, 범위를 벗어난 값은 양 끝에 표시합니다.
+        const markerPosition = Math.min(Math.max(((bmi - 10) / 30) * 100, 0), 100);
+        document.querySelector("#marker").style.left = `${markerPosition}%`;
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.a {
+    border: 10px solid #000;
+    width: 200px;
+    height: 200px;
+
+    overflow-y: auto;
+}
+.b {
+    border: 10px solid red;
+    width: 200px;
+
+    white-space: nowrap;
+    overflow-x: scroll;
+}
+.c {
+    border: 10px solid #000;
+    width: 200px;
+    height: 30px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.d {
+    border: 10px solid red;
+    width: 200px;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 스크롤바 스타일 변경 */
+::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
+}
+::-webkit-scrollbar-thumb {
+    background: blue;
+    border-radius: 10px;
+}
+/* 스크롤바가 다니는 트랙 */
+::-webkit-scrollbar-track {
+    background: green;
+}

@@ -1,0 +1,52 @@
+html {
+    /* font-size: 20px; */
+    font-size: 16px;
+    font-family: "페이퍼로지", 'Aggravo', 'Inter', sans-serif;
+    font-weight: 400;
+}
+.a {
+    font-size: 2rem;
+}
+.b {
+    font-size: 16px;
+}
+.b p {
+    font-size: 1em;
+    /* font-weight: 600; */
+    line-height: 1.38;
+    font-style: normal;
+}
+address {
+    font-style: normal;
+}
+.c {
+    letter-spacing: -10px;
+}
+.d {
+    /* white-space: nowrap; */
+    white-space: pre-wrap;
+}
+.e {
+    text-indent: 20px;
+    text-transform: capitalize;
+
+    word-break: normal;
+}
+.g {
+    text-align: justify;
+    text-decoration: line-through;
+}
+.h {
+    font-family: "페이퍼로지";
+    font-weight: 900;
+}
+.i {
+    font-family: 'Aggravo';
+    font-weight: 300;
+}
+.j {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}

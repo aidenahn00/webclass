@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 태그</title>
+</head>
+<body>
+    <h1>이미지 태그</h1>
+    <img src="./img/lp.jpg" alt="lp 판 사진">
+    <p>이미지 태그는 문맥적인 뜻 없다. 글자와 같은 콘텐츠이다.</p>
+    <p style="font-size: 100px">
+        이 <img style="height: 100px" src="./img/lp.jpg" alt="lp판 사진">은 오래되었다.
+    </p>
+    <h2>반응형 이미지 설정</h2>
+    <picture>
+        <source media="(max-width: 768px)" srcset="./img/dog-640.jpg">    
+        <source media="(max-width: 1200px)" srcset="./img/dog-1024.jpg">    
+        <source media="(min-width: 1201px)" srcset="./img/dog-1600.jpg">
+        <img src="./img/dog-640.jpg" alt="강아지 사진">
+    </picture>
+<!--
+    <img 
+    src="./img/dog-640.jpg" 
+    alt="강아지 사진" 
+    srcset="
+    ./img/dog-640.jpg 640w,
+    ./img/dog-1024.jpg 1024w,
+    ./img/dog-1600.jpg 1600w
+    " 
+    sizes="
+    (max-width: 640px) 640px,
+    (max-width: 1024px) 1024px,
+    1600px
+
+    "
+    >
+    <img src="./img/dog-1024.jpg" alt="강아지 사진">
+    <img src="./img/dog-1600.jpg" alt="강아지 사진">
+-->
+</body>
+</html>

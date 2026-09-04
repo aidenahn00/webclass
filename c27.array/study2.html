@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 응용</title>
+</head>
+<body>
+    <script>
+    let classRoom = [
+        ['김하경', 20, '여자', false, ['게임', '그림그리기', '음악듣기']],
+        ['성대한', 28, '남자', false, ['그림그리기', '게임']],
+        ['이선영', 24, '여자', false, ['그림그리기', '게임', '인형 만들기']],
+        ['장예원', 29, '여자', false, ['그림그리기', '음악듣기']],
+        ['정선민', 29, '여자', false, ['독서', '게임', '운동']],
+        ['김현아', 22, '여자', false, ['음악듣기', '산책하기', '레고만들기']],
+        ['김예림', 29, '여자', false, ['독서', '야구시청',]],
+        ['이효은', 20, '여자', false, ['산책하기', '음악듣기']],
+        ['백민선', 31, '여자', false, ['영화보기', '네일아트', '우정다지기']],
+        ['함국주', 29, '남자', true, ['캠핑하기', '배드민턴', '러닝하기', '요리하기']],
+        ['박민주', 32, '여자', true, ['웨이트', '롤', '요리하기', '야구시청', '유튜브시청']],
+        ['윤희정', 44, '여자', false, ['웹소설듣기', '등산하기', '궁 관람', '미술관 관람', '디오라마 조립']],
+        ['최선미', 41, '여자', true, ['수영하기', '식물키워', '스노쿨링', '낚시하기', '스노우보드']],
+        ['김가온', 19, '여자', false, ['게임하기', '갈틱폰', '말링이하기', '큰 마트 가기']],
+        ['안정현', 25, '남자', false, ['영화감상', '그림그리기', '요리하기', '스케이트타기']],
+        ['최윤성', 28, '남자', false, ['기타치기', '러닝하기', '만화보기', '게임하기']],
+        ['배수정', 38, '여자', false, ['독서', '뮤지컬보기']],
+        ['유채린', 24, '여자', false, ['여행가기', '요리하기', '블로그쓰기', '음악듣기']],
+    ];
+    // classRoom.forEach();
+    // 새로운 배열을 만듦
+    let newClassRoom = classRoom.map(el => [el[0], el[1]]);
+    console.log(classRoom, newClassRoom);
+    // 새로운 객체로 데이터를 만듦
+    let newClassRoomObject = classRoom.map(el => {
+        return { name : el[0], age : el[1], gender : el[2] };
+    });
+
+    // 축약
+    // let newClassRoomObject = classRoom.map(el => ({ name : el[0], age : el[1], gender : el[2] }));
+    console.log(classRoom, newClassRoom, newClassRoomObject);
+
+    // 데이터 정제
+    // 배열 형태를 다른 형태, 예컨대 객체로 바꿀 때는 map을 사용
+    // 배열 형태를 그대로 원소로 유지하면서 필터링 할 때 사용
+    // filter로 조건에 맞는 성별 조건에 맞는 것만 리턴하기
+    let classRoomOnlyMan = classRoom.filter(function(el) {
+        return el[2] === '남자';
+    });
+    console.log('남자만 출력', classRoomOnlyMan);
+
+    // filter
+    let classRoom30down = classRoom.filter(function(el) {
+        return el[1] <= 30;
+    });
+    console.log('나이 30살 이하만 출력', classRoom30down);
+
+    // map
+    let classRoom30downObject = classRoom30down.map(el=>({name : el[0], age : el[1], }));
+    console.log('나이 30살 이하만 출력 객체', classRoom30downObject);
+
+    // filter + map 한번에 이용!
+    let classRoom30downObject2 = classRoom30down.map(el=>({name : el[0], age : el[1], })).map(el=>({name : el[0], age : el[1], }));
+    console.log('나이 30살 이하만 출력 객체', classRoom30downObject2);
+    </script>
+</body>
+</html>

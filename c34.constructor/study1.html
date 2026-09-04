@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생성자함수</title>
+</head>
+<body>
+    <script>
+        // 객체를 생성하는 함수
+        function Person(userName, userGender) {
+            this.name = userName;
+            this.gender = userGender; 
+            this.sayHello = function(){
+                alert(`안녕하세요 저는 ${this.name}입니다.`);
+            }
+        }
+        let person1 = new Person('안정현', '남자'); // 인자로는 객체가 들어갈 수도 있다
+        let person2 = new Person('박민주', '여자');
+        let person3 = new Person('최선미', '여자');
+        person1.sayHello();
+    </script>
+</body>
+</html>

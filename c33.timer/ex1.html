@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파스타 소개</title>
+    <link rel="stylesheet" href="./css/ex1.css">
+    <script src="./js/ex1.js"></script>
+    <style>
+        :root {
+            --bg: #fffaf3;
+            --panel: #fff;
+            --primary: #b6522a;
+            --secondary: #f4c98b;
+            --text: #2d1a12;
+            --muted: #755b4e;
+            --line: #ecd9c5;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: "맑은 고딕", sans-serif;
+            background: linear-gradient(180deg, #fff8ee 0%, #fff 100%);
+            color: var(--text);
+        }
+
+        .container {
+            width: min(1100px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #7d2d1d 0%, #ca6a3c 45%, #f3c778 100%);
+            color: white;
+            padding: 80px 0 60px;
+        }
+
+        .hero-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 36px;
+        }
+
+        .hero-text {
+            flex: 1.1;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.35);
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 14px;
+            letter-spacing: 0.08em;
+        }
+
+        h1 {
+            margin: 18px 0 14px;
+            font-size: clamp(2.3rem, 4vw, 4.2rem);
+            line-height: 1.1;
+        }
+
+        .hero-text p {
+            margin: 0;
+            font-size: 1.08rem;
+            line-height: 1.8;
+            max-width: 620px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .hero-visual {
+            flex: 0.9;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pasta-plate {
+            width: min(360px, 100%);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #f9e8be 0%, #e9d6a0 18%, #f6f1df 26%, #f4f1ea 39%, #fff 100%);
+            border: 10px solid #f7ebd8;
+            box-shadow: inset 0 0 25px rgba(172, 112, 56, 0.18), 0 24px 40px rgba(79, 38, 16, 0.25);
+            position: relative;
+        }
+
+        .pasta-plate::before,
+        .pasta-plate::after {
+            content: "";
+            position: absolute;
+            inset: 18%;
+            border-radius: 50%;
+            background: radial-gradient(circle, #efd194 0%, #d78b4d 16%, #c77440 32%, #a65d35 52%, #7a402d 76%, #6b311e 100%);
+            box-shadow: inset 0 0 18px rgba(123, 59, 29, 0.42);
+        }
+
+        .pasta-plate::after {
+            inset: 30%;
+            background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, #f7f0e3 18%, #f2e8d3 22%, transparent 50%);
+            box-shadow: none;
+        }
+
+        main {
+            padding: 60px 0 80px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            margin-bottom: 20px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 8px 22px rgba(103, 62, 31, 0.06);
+        }
+
+        .card-visual {
+            height: 170px;
+            display: grid;
+            place-items: center;
+            font-size: 52px;
+            background: linear-gradient(135deg, #f8dfb2, #f4b777);
+        }
+
+        .card-body {
+            padding: 22px 20px 24px;
+        }
+
+        .card-body h3 {
+            margin: 0 0 10px;
+            font-size: 1.4rem;
+        }
+
+        .card-body p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .recipe {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 28px;
+        }
+
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .ingredients {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .ingredients li {
+            background: #fff8ef;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 12px 14px;
+            color: var(--text);
+        }
+
+        .steps {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .info-box {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 10px;
+        }
+
+        .info {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        .info strong {
+            display: block;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .info span {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 26px 0 48px;
+            color: var(--muted);
+        }
+
+        @media (max-width: 768px) {
+            .hero-inner,
+            .recipe-grid,
+            .cards,
+            .info-box {
+                grid-template-columns: 1fr;
+                display: grid;
+            }
+
+            .hero {
+                padding-top: 56px;
+            }
+
+            .hero-inner {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="popup">
+        <p><span class="popup-second">X</span>초 뒤에 자동으로 팝업이 닫힙니다</p>
+        <figure>
+            <img src="./img/popup.png" alt="알리오올리오파스타팝업이미지">
+        </figure>
+        <div class="controller">
+            <span class="button-nottoday-popup">오늘하루안보기</span>
+            <span class="button-close-popup">닫기</span>
+        </div>
+    </div>
+
+    <header class="hero">
+        <div class="container hero-inner">
+            <div class="hero-text">
+                <span class="badge">ITALIAN FAVORITE</span>
+                <h1>파스타, 매일 더 맛있게</h1>
+                <p>
+                    파스타는 삶의 속도와 여유를 함께 느끼게 해주는 음식입니다.
+                    쫄깃한 면발과 향긋한 소스가 어우러져 한 입만 먹어도 마음이 편안해지는 클래식한 메뉴입니다.
+                </p>
+            </div>
+            <div class="hero-visual">
+                <div class="pasta-plate" aria-label="파스타 이미지"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2 class="section-title">파스타의 매력</h2>
+            <div class="cards">
+                <article class="card">
+                    <div class="card-visual">🍝</div>
+                    <div class="card-body">
+                        <h3>부드러운 식감</h3>
+                        <p>면발의 쫄깃함과 소스의 부드러움이 조화롭게 어우러져 누구나 좋아하는 맛을 느낄 수 있습니다.</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-visual">🍅</div>
+                    <div class="card-body">
+                        <h3>풍부한 맛</h3>
+                        <p>토마토, 크림, 올리브오일, 바질, 마늘 등 다양한 재료가 조합되어 깊고 풍부한 풍미를 냅니다.</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-visual">✨</div>
+                    <div class="card-body">
+                        <h3>다양한 스타일</h3>
+                        <p>크림 파스타, 토마토 파스타, 해산물 파스타, 채소 파스타까지 취향에 맞춰 무한히 즐길 수 있습니다.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">가장 인기 있는 파스타</h2>
+            <div class="recipe">
+                <div class="recipe-grid">
+                    <div>
+                        <h3>알리오 올리오</h3>
+                        <p style="color: var(--muted); line-height: 1.8;">
+                            가장 심플하면서도 깊은 맛을 자랑하는 파스타입니다. 올리브오일, 마늘, 페퍼론치노, 바질이 만나
+                            고소하고 향긋한 풍미를 선사합니다.
+                        </p>
+                    </div>
+                    <ul class="ingredients">
+                        <li>스파게티면 200g</li>
+                        <li>올리브오일 3큰술</li>
+                        <li>마늘 4쪽</li>
+                        <li>바질 5장</li>
+                        <li>파마산 치즈 약간</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">만드는 방법</h2>
+            <div class="recipe">
+                <ol class="steps">
+                    <li>물을 끓여 파스타면을 알 dente 상태로 삶습니다.</li>
+                    <li>팬에 올리브오일을 두르고 마늘과 페퍼론치노를 볶아 향을 냅니다.</li>
+                    <li>삶은 면을 팬에 넣고 소스가 잘 묻도록 섞어줍니다.</li>
+                    <li>마지막에 바질과 파마산 치즈를 뿌려 완성합니다.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">파스타의 포인트</h2>
+            <div class="info-box">
+                <div class="info">
+                    <strong>1</strong>
+                    <span>면 삶기</span>
+                </div>
+                <div class="info">
+                    <strong>2</strong>
+                    <span>소스 배합</span>
+                </div>
+                <div class="info">
+                    <strong>3</strong>
+                    <span>마무리 양념</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        오늘의 한 끼, 파스타로 특별하게 즐겨보세요.
+    </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문</title>
+</head>
+<body>
+    <script>
+        let array = [3, 3, 3];
+        for (let i = 0; i < array.length; i++) {
+            // 반복될 코드
+            // console.log('코드 반복 중'+i);
+            document.write('코드 반복 중'+(i+1)+'<br>');
+        }
+        
+        // 중첩 반복문
+        for (let i = 2; i < 10; i++) {
+            for (let j = 1; j < 10; j++) {
+                document.write(`<p>${i}x${j} = ${i*j}</p>`);
+            }
+        }
+
+    </script>
+</body>
+</html>

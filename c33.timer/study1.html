@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timer</title>
+</head>
+<body>
+    <script>
+        // 3초 후에 실행
+        let timer1 = setTimeout(function(){
+            alert('국주안뇽');
+        }, 3000);
+        clearTimeout(timer1);
+
+        // 6초 후에 실행
+        let timer2 = setTimeout(function(){
+            alert('가온안뇽');
+        }, 6000);
+        clearTimeout(timer2);
+
+        let count = 0;
+        // 1초마다 다시 실행
+        let repeat1 = setInterval(function(){
+            console.log('test');
+            count += 1;
+            if (count === 5) {
+                clearInterval(repeat1);
+            }
+        }, 1000);
+
+        // 재귀 함수를 이용한 setTimeout() 반복 실행문
+        let count2 = 5;
+        let countdown = () => {
+            count2--;
+            console.log(count2);
+            if (count2 === 0) return;
+            setTimeout(function(){
+                countdown();
+            }, 1000);
+        }    
+        countdown();
+    </script>
+</body>
+</html>

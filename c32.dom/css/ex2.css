@@ -1,0 +1,20 @@
+.tabs {
+    display: flex;
+    user-select: none;
+}
+.tabs > div.on {
+    background: blue;
+    color: white;
+}
+.tabs > div {
+    border: 1px solid #000;
+    cursor: pointer;
+
+    padding: 4px 12px;
+}
+.tab-contents > div {
+    display: none;
+}
+.tab-contents > div.on {
+    display: block;
+}

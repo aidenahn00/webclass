@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수 - variable</title>
+</head>
+<body>
+    <script>
+        // 모든 데이터타입은 상수다
+        let a; // 선언
+        a = 10; // 10으로 초기화
+        a = '안뇽'; // 재저장
+        console.log(a);
+        
+        let b = 20; // 선언과 동시에 20으로 초기화
+        b = '하세요'; // 재저장
+        console.log(b);
+        console.log(a+b);
+
+        let c = a+b; // 레퍼런스 에러
+        console.log(c);
+        console.log(c.length);
+        console.log(c[2]+c[4]); // '하요'
+        
+        const BIRTH = '0427'; // 선생님 생일
+        console.log(BIRTH); // '0427'
+        // BIRTH = 22; // 에러
+    </script>
+</body>
+</html>

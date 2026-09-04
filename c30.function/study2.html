@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>값으로서 사용되는 함수</title>
+</head>
+<body>
+    <script>
+        // a(); // 호이스팅
+        // function a() {
+        //     alert('aaa');
+        // }
+
+        // let b = function() {
+        //     alert('bbb');
+        // }
+        // b();
+
+        // // 축약 표현
+        // let c = () => {
+        //     alert('ccc');
+        // }
+        // c();
+
+        // let d = name => {
+        //     alert(name+'님 반갑습니다.');
+        // }
+        // d('정현진');
+        // let g = name => { // 소괄호() 생략
+        //     alert(name+'님 반갑습니다.');
+        // }
+        // g('정현진');
+        // let h = name => alert(name+'님 반갑습니다.'); // 중괄호{} 생략
+        // h('정현진');
+
+        // 사물 -> 객체
+        let fan = {
+            body : '검은색',
+            height : 120,
+            width : 30,
+            weight : '6kg',
+            fanSpeed : 0,
+            powerOn : function() {
+                alert('선풍기 전원이 켜졌습니다.');
+                this.fanSpeed = 1;
+            },
+            poswerOff : function() {
+                alert('선풍기 전원이 꺼졌습니다.');
+                this.fanSpeed = 0;
+            },
+            fanSpeedUp : function() {
+                // 이 선풍기의 펜스피드를 올리는 기능
+                this.fanSpeed += 1;
+            },
+            fanSpeedDown : function() {
+                // 이 선풍기의 펜스피드를 올리는 기능
+                this.fanSpeed -= 1;
+            },
+            showFanSpeed : function() {
+                alert(`현재 선풍기 속도는 ${this.fanSpeed}입니다.`);
+            },
+        }
+
+        fan.powerOn();
+        fan.showFanSpeed();      
+        fan.fanSpeedUp();
+        fan.fanSpeedUp();
+        fan.showFanSpeed();        
+
+        /*
+        fan.body
+        fan.weight
+        fan.poswerOn // 함수 프로퍼티를 불러오기만 하는 것
+        fan.poswerOff(); // 소괄호를 적어서 함수를 실행한다라고 해야지 실제 실행이 된다
+        */
+    </script>
+</body>
+</html>

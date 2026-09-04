@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    height: 12000px;
+    background: linear-gradient(180deg, red, green, blue, gold, pink);
+}
+#scr {
+    position: fixed;
+    left: 1rem;
+    top: 0rem;
+    background-color: #fff;
+    padding: 10px;
+    font-size: 30px;
+    border-radius: 5px;
+
+    transition: all .5s ease 0s;
+    transform: translateY(-100%);
+}
+#scr.on {
+    top: 1rem;
+    transform: translateY(0);
+}
+
+.progress {
+    position: fixed;
+    width: 90%;
+    left: 5%;
+    bottom: 20px;
+}
+.bar-wrap {
+    height: 10px;
+    border-radius: 100px;
+    background-color: rgba(245, 245, 220, 0.692);
+    overflow: hidden;
+}
+.bar {
+    width: 30%;
+    height: 100%;
+    background-color: lime;
+    border-radius: 100px;
+}
+.percent {
+    text-align: center;
+}
+
+.btn-top {
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+    background-color: #fff;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    cursor: pointer;
+    user-select: none;
+
+    transition: all .5s ease 0s;
+    opacity: 0;
+    pointer-events: none;
+}
+.btn-top.on {
+    opacity: 1;
+    pointer-events: initial;
+}
