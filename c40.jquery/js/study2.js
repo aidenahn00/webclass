@@ -18,3 +18,17 @@ $('.b').next().addClass('on');
 $('.c').prev().html('네이버');
 $('.c').prev().html('네이버');
 $('.c').parent().css('background-color', 'beige');
+
+$('#btn').click(()=>{
+    $('.frame').css('color', 'blue');
+});
+
+// $('#btn').on('click', ()=>{
+    // $('.frame').css('color', 'blue');
+// });
+
+// 5개의 li 태그가 그냥 선택됨
+$('.list>li').click(function(){
+    let idx = $(this).index();
+    alert(idx);
+});
